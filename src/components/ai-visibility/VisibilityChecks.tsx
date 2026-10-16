@@ -1,0 +1,102 @@
+"use client";
+
+import { motion } from 'framer-motion';
+import { Container } from '@/components/ui/Container';
+import { Network, Search, Database, ShieldCheck } from 'lucide-react';
+
+const viewportConfig = { once: true, margin: '-100px' };
+
+const checks = [
+  {
+    icon: <Network className="h-7 w-7 text-indigo-400" />,
+    title: "AI Crawler Access",
+    description: "We check if your most important pages are accessible to modern search and AI crawlers, identifying firewall rules or technical restrictions blocking discovery.",
+    glowColor: "rgba(99, 102, 241, 0.15)"
+  },
+  {
+    icon: <Search className="h-7 w-7 text-purple-400" />,
+    title: "Content Structure",
+    description: "We review semantic HTML, heading structure, question-led content, topical clarity, and whether important information is structured for machine extraction.",
+    glowColor: "rgba(168, 85, 247, 0.15)"
+  },
+  {
+    icon: <Database className="h-7 w-7 text-emerald-400" />,
+    title: "Structured Data",
+    description: "We validate relevant schema.org implementations and machine-readable data across pages to ensure AI models get direct, structured context about your services.",
+    glowColor: "rgba(16, 185, 129, 0.15)"
+  },
+  {
+    icon: <ShieldCheck className="h-7 w-7 text-rose-400" />,
+    title: "Freshness & Trust",
+    description: "We review fundamental trust signals such as dates, verifiable authorship, explicit business information, and contact details used as credibility markers.",
+    glowColor: "rgba(244, 63, 94, 0.15)"
+  }
+];
+
+export function VisibilityChecks() {
+  return (
+    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-[#030303]">
+      <Container className="relative z-10 mx-auto max-w-7xl">
+        <div className="mb-20 text-center flex flex-col items-center">
+          <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
+            <span className="flex h-2 w-2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)] animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+              What We Check
+            </span>
+          </div>
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportConfig}
+            transition={{ duration: 0.5 }}
+            className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl"
+          >
+            The Foundational Signals
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportConfig}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="mx-auto max-w-2xl text-xl text-neutral-400 font-light"
+          >
+            We dissect the specific technical and structural data points that search engines and AI models use to interpret your business.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {checks.map((check, index) => (
+            <motion.div
+              key={check.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportConfig}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-neutral-900/40 p-8 md:p-12 transition-all duration-500 hover:border-white/10 hover:bg-neutral-900/60"
+            >
+              {/* Dynamic Glow Background */}
+              <div 
+                className="absolute -right-20 -top-20 h-64 w-64 rounded-full blur-[80px] transition-all duration-500 group-hover:scale-150"
+                style={{ backgroundColor: check.glowColor }}
+              />
+              
+              <div className="relative z-10 flex flex-col h-full">
+                <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
+                  {check.icon}
+                </div>
+                
+                <h3 className="mb-4 text-2xl font-bold text-white tracking-wide">
+                  {check.title}
+                </h3>
+                
+                <p className="text-lg leading-relaxed text-neutral-400">
+                  {check.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}

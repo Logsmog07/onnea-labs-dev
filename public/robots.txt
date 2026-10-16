@@ -1,0 +1,13 @@
+# Allow all bots to crawl the site
+User-agent: *
+Allow: /
+
+# Disallow admin/private paths (if any)
+Disallow: /admin
+Disallow: /api
+
+# Sitemap location
+Sitemap: https://onnealabs.com/sitemap.xml
+
+# Crawl delay (optional - good for server load)
+Crawl-delay: 10

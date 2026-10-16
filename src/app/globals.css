@@ -1,0 +1,235 @@
+@import "tailwindcss";
+
+:root {
+  --background: #030508;
+  --foreground: #e8edf5;
+  --foreground-muted: #9ca3af;
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  --primary-glow: #8b5cf6;
+  --secondary: #06b6d4;
+  --accent: #a855f7;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover-border: rgba(99, 102, 241, 0.25);
+  --bg-dark: #030508;
+  --bg-mid: #080c14;
+  --bg-light: #0d1117;
+  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(99, 102, 241, 0.03) 0%, transparent 100%);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-hover: rgba(255, 255, 255, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-card: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --font-sans: var(--font-inter);
+}
+
+html {
+  color-scheme: dark;
+  /* scroll-behavior: smooth removed — Lenis handles smooth scrolling via RAF;
+     native CSS smooth scroll fights with Lenis and causes double-smoothing jank */
+  scroll-behavior: auto;
+  overflow-x: clip; 
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  line-height: 1.6;
+}
+
+@utility glass {
+  background-color: rgba(8, 12, 20, 0.85);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  /* Removed will-change: backdrop-filter — static elements don't need this hint,
+     it forces compositor promotion of large subtrees unnecessarily */
+}
+
+@utility glass-hover {
+  background-color: rgba(12, 16, 28, 0.9);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    0 2px 8px rgba(99, 102, 241, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  /* Removed will-change: backdrop-filter, box-shadow — applied on hover via class,
+     will-change on a state utility causes premature layer promotion */
+}
+
+@utility form-surface {
+  background-color: rgba(10, 14, 22, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(99, 102, 241, 0.25);
+}
+
+@utility bg-glow {
+  box-shadow: 
+    0 0 60px -15px rgba(99, 102, 241, 0.3),
+    0 0 100px -30px rgba(139, 92, 246, 0.2);
+}
+
+@utility dark-section {
+  background-color: var(--bg-dark);
+}
+
+@utility mid-section {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 50%, var(--bg-dark) 100%);
+}
+
+@utility light-section {
+  background-color: var(--bg-light);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+@utility gradient-section {
+  background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-mid) 100%);
+  position: relative;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.35);
+  color: #fff;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+select option {
+  background: #0a0f18;
+  color: #e8edf5;
+}
+
+/* Smooth focus states */
+*:focus-visible {
+  outline: 2px solid rgba(99, 102, 241, 0.5);
+  outline-offset: 2px;
+}
+
+/* Improved scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Blog prose styles */
+.prose-blog h1,
+.prose-blog h2,
+.prose-blog h3,
+.prose-blog h4 {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-blog h1 { font-size: 2rem; }
+.prose-blog h2 { font-size: 1.5rem; }
+.prose-blog h3 { font-size: 1.25rem; }
+
+.prose-blog p {
+  margin-bottom: 1.25rem;
+  color: #9ca3af;
+}
+
+.prose-blog ul,
+.prose-blog ol {
+  margin-bottom: 1.25rem;
+  padding-left: 1.5rem;
+  color: #9ca3af;
+}
+
+.prose-blog ul { list-style-type: disc; }
+.prose-blog ol { list-style-type: decimal; }
+
+.prose-blog li {
+  margin-bottom: 0.4rem;
+}
+
+.prose-blog strong {
+  color: #e8edf5;
+  font-weight: 600;
+}
+
+.prose-blog a {
+  color: #818cf8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose-blog a:hover {
+  color: #a5b4fc;
+}
+
+.prose-blog blockquote {
+  border-left: 3px solid rgba(99, 102, 241, 0.5);
+  padding-left: 1rem;
+  color: #6b7280;
+  font-style: italic;
+  margin: 1.5rem 0;
+}
+
+.prose-blog code {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  font-size: 0.875em;
+  color: #a5b4fc;
+}
+
+.prose-blog pre {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  padding: 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1.25rem;
+}
+
+.prose-blog hr {
+  border-color: rgba(255, 255, 255, 0.06);
+  margin: 2rem 0;
+}
