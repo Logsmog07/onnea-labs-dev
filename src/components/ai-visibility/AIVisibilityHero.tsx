@@ -1,5 +1,7 @@
 "use client";
 
+import styles from '@/app/ai-visibility-report/ai-visibility-theme.module.css';
+
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { AIVisibilityReportForm } from './AIVisibilityReportForm';
@@ -9,7 +11,7 @@ const viewportConfig = { once: true, margin: '-100px' };
 
 export function AIVisibilityHero() {
   return (
-    <section className="theme-hero relative overflow-hidden pt-32 pb-24 md:pt-48 md:pb-32 dark-section bg-canvas">
+    <section className={`${styles.hero} theme-hero relative overflow-hidden pt-32 pb-6 md:pt-48 md:pb-8 lg:pb-10 dark-section bg-canvas`}>
       {/* Premium Background Effects */}
       <div className="pointer-events-none absolute inset-0">
         {/* Animated Mesh Gradient */}
@@ -31,7 +33,7 @@ export function AIVisibilityHero() {
         />
         
         {/* Subtle grid pattern background */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#51245f0a_1px,transparent_1px),linear-gradient(to_bottom,#51245f0a_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_20%,#000_60%,transparent_100%)]" />
+        <div className={`${styles.heroPattern} absolute inset-0 bg-[linear-gradient(to_right,#51245f0a_1px,transparent_1px),linear-gradient(to_bottom,#51245f0a_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_80%_60%_at_50%_20%,#000_60%,transparent_100%)]`} />
       </div>
 
       <Container className="relative z-10 mx-auto max-w-7xl">
@@ -46,7 +48,7 @@ export function AIVisibilityHero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="mb-8 inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 backdrop-blur-sm shadow-card w-fit bg-transparent"
+              className={`${styles.badge} mb-8 inline-flex items-center gap-2 rounded-full border border-line px-4 py-2 backdrop-blur-sm shadow-card w-fit bg-transparent`}
             >
               <Sparkles className="h-4 w-4 text-accent" />
               <span className="text-xs font-semibold uppercase tracking-[0.15em] text-accent">

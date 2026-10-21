@@ -1,5 +1,7 @@
 "use client";
 
+import styles from '@/app/ai-visibility-report/ai-visibility-theme.module.css';
+
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { ArrowRight, MessageSquare, Zap } from 'lucide-react';
@@ -18,7 +20,7 @@ export function AIVisibilityCTA() {
       {/* Dynamic Background */}
       <div className="absolute inset-0">
         <div className="absolute top-1/2 left-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 blur-[60px] bg-transparent" />
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#51245f0a_1px,transparent_1px),linear-gradient(to_bottom,#51245f0a_1px,transparent_1px)] bg-[size:24px_24px]" />
+        <div className={`${styles.closingPattern} absolute inset-0 bg-[linear-gradient(to_right,#51245f0a_1px,transparent_1px),linear-gradient(to_bottom,#51245f0a_1px,transparent_1px)] bg-[size:24px_24px]`} />
       </div>
 
       <Container className="relative z-10 mx-auto max-w-5xl text-center">
@@ -27,7 +29,7 @@ export function AIVisibilityCTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportConfig}
           transition={{ duration: 0.6 }}
-          className="theme-endpoint relative overflow-hidden rounded-[2.5rem] border border-line bg-surface p-10 backdrop-blur-2xl md:p-20 shadow-card"
+          className={`${styles.closingPanel} theme-endpoint relative overflow-hidden rounded-[2.5rem] border border-line bg-surface p-10 backdrop-blur-2xl md:p-20 shadow-card`}
         >
           {/* Subtle top glow line */}
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-mauve to-transparent" />

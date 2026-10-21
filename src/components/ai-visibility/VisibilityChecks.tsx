@@ -1,5 +1,7 @@
 "use client";
 
+import styles from '@/app/ai-visibility-report/ai-visibility-theme.module.css';
+
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { Network, Search, Database, ShieldCheck } from 'lucide-react';
@@ -35,9 +37,9 @@ const checks = [
 
 export function VisibilityChecks() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-canvas">
+    <section className="relative overflow-hidden py-6 md:py-8 lg:py-10 dark-section bg-canvas">
       <Container className="relative z-10 mx-auto max-w-7xl">
-        <div className="mb-20 text-center flex flex-col items-center">
+        <div className="mb-6 text-center md:mb-8 lg:mb-10 flex flex-col items-center">
           <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-line bg-surface px-4 py-1.5 backdrop-blur-sm">
             <span className="flex h-2 w-2 rounded-full bg-accent shadow-card animate-pulse" />
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-ink">
@@ -72,7 +74,7 @@ export function VisibilityChecks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportConfig}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-[2rem] border border-line bg-surface p-8 md:p-12 transition-all duration-500 hover:border-line hover:bg-surface"
+              className={`${styles.checkCard} group relative overflow-hidden rounded-[2rem] border border-line bg-surface p-8 md:p-12 transition-all duration-500 hover:border-line hover:bg-surface`}
             >
               {/* Dynamic Glow Background */}
               <div 
@@ -81,7 +83,7 @@ export function VisibilityChecks() {
               />
               
               <div className="relative z-10 flex flex-col h-full">
-                <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-tile border border-line shadow-card backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
+                <div className={`${styles.iconTile} mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-tile border border-line shadow-card backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110`}>
                   {check.icon}
                 </div>
                 

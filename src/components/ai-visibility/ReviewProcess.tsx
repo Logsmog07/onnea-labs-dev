@@ -1,5 +1,7 @@
 "use client";
 
+import styles from '@/app/ai-visibility-report/ai-visibility-theme.module.css';
+
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 
@@ -30,9 +32,9 @@ const steps = [
 
 export function ReviewProcess() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-canvas">
+    <section className={`${styles.process} relative overflow-hidden py-6 md:py-8 lg:py-10 dark-section bg-canvas`}>
       <Container className="relative z-10 mx-auto max-w-7xl">
-        <div className="mb-20">
+        <div className="mb-6 md:mb-8 lg:mb-10">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +63,7 @@ export function ReviewProcess() {
               whileInView={{ scaleX: 1 }}
               viewport={viewportConfig}
               transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
-              className="h-full w-[calc(100%-96px)] origin-left bg-gradient-to-r from-mauve via-mauve to-transparent"
+              className={`${styles.processLine} h-full w-[calc(100%-96px)] origin-left bg-gradient-to-r from-mauve via-mauve to-transparent`}
             />
           </div>
 
@@ -76,14 +78,14 @@ export function ReviewProcess() {
                 className="relative flex flex-col group"
               >
                 {/* Node */}
-                <div className="mb-8 flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-surface border border-line shadow-card transition-all duration-500 group-hover:border-line group-hover:shadow-card z-10 relative overflow-hidden">
+                <div className={`${styles.processNode} mb-8 flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl bg-surface border border-line shadow-card transition-all duration-500 group-hover:border-line group-hover:shadow-card z-10 relative overflow-hidden`}>
                   <div className="absolute inset-0 bg-gradient-to-br from-line to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <span className="text-2xl font-black text-ink relative z-10">{step.step}</span>
                 </div>
                 
                 {/* Vertical connecting line for mobile */}
                 {index !== steps.length - 1 && (
-                  <div className="absolute left-[47px] top-[96px] h-[calc(100%-32px)] w-[2px] bg-gradient-to-b from-mauve to-transparent md:hidden" />
+                  <div className={`${styles.mobileProcessLine} absolute left-[47px] top-[96px] h-[calc(100%-32px)] w-[2px] bg-gradient-to-b from-mauve to-transparent md:hidden`} />
                 )}
 
                 <h3 className="mb-3 text-xl font-bold tracking-wide text-ink group-hover:text-accent transition-colors">

@@ -1,5 +1,7 @@
 "use client";
 
+import styles from '@/app/ai-visibility-report/ai-visibility-theme.module.css';
+
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, Loader2, ArrowRight, ShieldCheck, Mail, Globe, User, Building } from 'lucide-react';
@@ -62,7 +64,7 @@ export function AIVisibilityReportForm() {
   };
 
   return (
-    <div className="relative z-10 rounded-[2rem] border border-line bg-surface p-6 shadow-card backdrop-blur-2xl md:p-10 w-full max-w-xl mx-auto lg:mx-0 overflow-hidden">
+    <div className={`${styles.formPanel} relative z-10 rounded-[2rem] border border-line bg-surface p-6 shadow-card backdrop-blur-2xl md:p-10 w-full max-w-xl mx-auto lg:mx-0 overflow-hidden`}>
       {/* Top subtle highlight */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-line to-transparent" />
       
@@ -108,8 +110,8 @@ export function AIVisibilityReportForm() {
                   <Globe className="h-3.5 w-3.5" /> Your website <span className="text-accent">*</span>
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                  <input required name="website" type="url" placeholder="https://www.yourcompany.com" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
+                  <div className={`${styles.fieldGlow} absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30`} />
+                  <input required name="website" type="url" placeholder="https://www.yourcompany.com" className={`${styles.field} relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card`} />
                 </div>
               </div>
               
@@ -118,8 +120,8 @@ export function AIVisibilityReportForm() {
                   <Mail className="h-3.5 w-3.5" /> Work email <span className="text-accent">*</span>
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                  <input required name="email" type="email" placeholder="We'll send the report here" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
+                  <div className={`${styles.fieldGlow} absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30`} />
+                  <input required name="email" type="email" placeholder="We'll send the report here" className={`${styles.field} relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card`} />
                 </div>
               </div>
 
@@ -129,8 +131,8 @@ export function AIVisibilityReportForm() {
                     <User className="h-3.5 w-3.5" /> First name <span className="text-accent">*</span>
                   </label>
                   <div className="relative group">
-                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                    <input required name="name" type="text" placeholder="Your name" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
+                    <div className={`${styles.fieldGlow} absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30`} />
+                    <input required name="name" type="text" placeholder="Your name" className={`${styles.field} relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card`} />
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -138,15 +140,15 @@ export function AIVisibilityReportForm() {
                     <Building className="h-3.5 w-3.5" /> Company
                   </label>
                   <div className="relative group">
-                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                    <input name="company" type="text" placeholder="Optional" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
+                    <div className={`${styles.fieldGlow} absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30`} />
+                    <input name="company" type="text" placeholder="Optional" className={`${styles.field} relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card`} />
                   </div>
                 </div>
               </div>
 
               <div className="pt-4">
                 <label className="flex items-start gap-4 cursor-pointer group">
-                  <div className="relative flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded border border-line bg-canvas transition-colors group-hover:border-line group-hover:bg-tile">
+                  <div className={`${styles.consentControl} relative flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded border border-line bg-canvas transition-colors group-hover:border-line group-hover:bg-tile`}>
                     <input type="checkbox" name="contact_consent" className="peer absolute h-full w-full opacity-0 cursor-pointer" />
                     <div className="pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
                       <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +173,7 @@ export function AIVisibilityReportForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="theme-primary group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-accent px-8 py-4 font-bold text-surface transition-all hover:bg-hover disabled:opacity-70 mt-6 shadow-card hover:shadow-card"
+                className={`${styles.primaryAction} theme-primary group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-accent px-8 py-4 font-bold text-surface transition-all hover:bg-hover disabled:opacity-70 mt-6 shadow-card hover:shadow-card`}
               >
                 <span className="relative z-10 tracking-wide">{isSubmitting ? 'Submitting...' : 'Get My AI Visibility Report'}</span>
                 {!isSubmitting && <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />}

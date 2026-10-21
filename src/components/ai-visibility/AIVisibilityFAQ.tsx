@@ -1,5 +1,7 @@
 "use client";
 
+import styles from '@/app/ai-visibility-report/ai-visibility-theme.module.css';
+
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
@@ -30,9 +32,9 @@ export function AIVisibilityFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-canvas bg-canvas">
+    <section className="relative overflow-hidden pt-6 pb-24 md:pt-8 md:pb-32 lg:pt-10 dark-section bg-canvas">
       <Container className="relative z-10 mx-auto max-w-4xl">
-        <div className="mb-16 text-center">
+        <div className="mb-6 text-center md:mb-8 lg:mb-10">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -55,7 +57,8 @@ export function AIVisibilityFAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={viewportConfig}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen ? 'border-line bg-tile' : 'border-line bg-surface hover:bg-tile'}`}
+                data-expanded={isOpen}
+                className={`${styles.faqItem} overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen ? 'border-line bg-tile' : 'border-line bg-surface hover:bg-tile'}`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
@@ -64,7 +67,7 @@ export function AIVisibilityFAQ() {
                   <span className={`text-lg font-bold tracking-wide transition-colors duration-300 ${isOpen ? 'text-ink' : 'text-ink'}`}>
                     {faq.question}
                   </span>
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen ? 'border-line bg-tile text-accent rotate-180' : 'border-line bg-surface text-muted'}`}>
+                  <div className={`${styles.faqControl} flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen ? 'border-line bg-tile text-accent rotate-180' : 'border-line bg-surface text-muted'}`}>
                     {isOpen ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
                   </div>
                 </button>
