@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import styles from './ai-visibility-theme.module.css';
 import { AIVisibilityHero } from '@/components/ai-visibility/AIVisibilityHero';
 import { ReportDeliverables } from '@/components/ai-visibility/ReportDeliverables';
 import { VisibilityChecks } from '@/components/ai-visibility/VisibilityChecks';
@@ -33,7 +34,7 @@ export default function AIVisibilityReportPage() {
   return (
     <>
       <Navbar />
-      <main id="top" className="flex min-h-screen flex-col bg-canvas">
+      <main id="top" className={`${styles.theme} flex min-h-screen flex-col bg-canvas`}>
         <AIVisibilityHero />
         <ReportDeliverables />
         <VisibilityChecks />

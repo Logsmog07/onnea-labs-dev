@@ -1,5 +1,7 @@
 "use client";
 
+import styles from '@/app/ai-visibility-report/ai-visibility-theme.module.css';
+
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { Sparkles } from 'lucide-react';
@@ -31,9 +33,9 @@ const deliverables = [
 
 export function ReportDeliverables() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-canvas">
+    <section className={`${styles.deliverables} relative overflow-hidden pt-6 pb-0 md:pt-8 md:pb-2 lg:pt-10 lg:pb-4 dark-section bg-canvas`}>
       <Container className="relative z-10 mx-auto max-w-7xl">
-        <div className="mb-20 max-w-3xl">
+        <div className="mb-0 max-w-3xl md:mb-2 lg:mb-4">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -67,10 +69,10 @@ export function ReportDeliverables() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={viewportConfig}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative flex flex-col gap-6 py-10 pl-16 md:flex-row md:items-center md:gap-16 md:pl-24"
+              className="group relative flex flex-col gap-6 py-6 pl-16 md:flex-row md:items-center md:gap-16 md:pl-24"
             >
               {/* Timeline dot */}
-              <div className="absolute left-[20px] top-[46px] h-4 w-4 rounded-full border-2 border-canvas bg-tile transition-all duration-300 group-hover:scale-150 group-hover:bg-accent group-hover:shadow-card md:left-[32px] md:top-1/2 md:-translate-y-1/2" />
+              <div className={`${styles.timelineDot} absolute left-[20px] top-[30px] h-4 w-4 rounded-full border-2 border-canvas bg-tile transition-all duration-300 group-hover:scale-150 group-hover:bg-accent group-hover:shadow-card md:left-[32px] md:top-1/2 md:-translate-y-1/2`} />
               
               <div className="flex shrink-0 items-center gap-6 md:w-72">
                 <span className="text-5xl font-black text-accent transition-colors duration-500 group-hover:text-accent group-hover:drop-shadow-[0_0_10px_rgba(231,220,231,0.2)]">
