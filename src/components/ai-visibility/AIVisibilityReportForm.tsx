@@ -62,9 +62,9 @@ export function AIVisibilityReportForm() {
   };
 
   return (
-    <div className="relative z-10 rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 shadow-2xl backdrop-blur-2xl md:p-10 w-full max-w-xl mx-auto lg:mx-0 overflow-hidden">
+    <div className="relative z-10 rounded-[2rem] border border-line bg-surface p-6 shadow-card backdrop-blur-2xl md:p-10 w-full max-w-xl mx-auto lg:mx-0 overflow-hidden">
       {/* Top subtle highlight */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-line to-transparent" />
       
       <AnimatePresence mode="wait">
         {isSuccess ? (
@@ -79,10 +79,10 @@ export function AIVisibilityReportForm() {
             <div className="relative mb-8 flex h-24 w-24 items-center justify-center rounded-full bg-emerald-500/10">
               <div className="absolute inset-0 rounded-full border border-emerald-500/30 animate-[spin_4s_linear_infinite]" />
               <div className="absolute inset-2 rounded-full border border-emerald-500/20 animate-[spin_3s_linear_infinite_reverse]" />
-              <CheckCircle2 className="h-12 w-12 text-emerald-400" />
+              <CheckCircle2 className="h-12 w-12 text-emerald-700" />
             </div>
-            <h3 className="mb-4 text-3xl font-bold tracking-tight text-white">Report Requested</h3>
-            <p className="max-w-xs text-lg leading-relaxed text-neutral-400">
+            <h3 className="mb-4 text-3xl font-bold tracking-tight text-ink">Report Requested</h3>
+            <p className="max-w-xs text-lg leading-relaxed text-muted">
               Thanks &mdash; we&apos;ve received your details. Our team is generating your AI Visibility Report.
             </p>
           </motion.div>
@@ -94,8 +94,8 @@ export function AIVisibilityReportForm() {
             exit={{ opacity: 0 }}
           >
             <div className="mb-8">
-              <h3 className="mb-3 text-3xl font-bold text-white tracking-tight">Request Your Report</h3>
-              <p className="text-neutral-400 leading-relaxed text-sm md:text-base">
+              <h3 className="mb-3 text-3xl font-bold text-ink tracking-tight">Request Your Report</h3>
+              <p className="text-muted leading-relaxed text-sm md:text-base">
                 Discover the technical signals influencing how AI systems interpret your business.
               </p>
             </div>
@@ -104,57 +104,57 @@ export function AIVisibilityReportForm() {
               <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
               
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
-                  <Globe className="h-3.5 w-3.5" /> Your website <span className="text-indigo-400">*</span>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted flex items-center gap-2">
+                  <Globe className="h-3.5 w-3.5" /> Your website <span className="text-accent">*</span>
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                  <input required name="website" type="url" placeholder="https://www.yourcompany.com" className="relative w-full rounded-xl px-5 py-4 text-white placeholder-neutral-600 outline-none bg-neutral-900/80 border border-white/5 transition-all duration-300 focus:border-indigo-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]" />
+                  <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
+                  <input required name="website" type="url" placeholder="https://www.yourcompany.com" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
-                  <Mail className="h-3.5 w-3.5" /> Work email <span className="text-indigo-400">*</span>
+                <label className="text-xs font-semibold uppercase tracking-wider text-muted flex items-center gap-2">
+                  <Mail className="h-3.5 w-3.5" /> Work email <span className="text-accent">*</span>
                 </label>
                 <div className="relative group">
-                  <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                  <input required name="email" type="email" placeholder="We'll send the report here" className="relative w-full rounded-xl px-5 py-4 text-white placeholder-neutral-600 outline-none bg-neutral-900/80 border border-white/5 transition-all duration-300 focus:border-indigo-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]" />
+                  <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
+                  <input required name="email" type="email" placeholder="We'll send the report here" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
-                    <User className="h-3.5 w-3.5" /> First name <span className="text-indigo-400">*</span>
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted flex items-center gap-2">
+                    <User className="h-3.5 w-3.5" /> First name <span className="text-accent">*</span>
                   </label>
                   <div className="relative group">
-                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                    <input required name="name" type="text" placeholder="Your name" className="relative w-full rounded-xl px-5 py-4 text-white placeholder-neutral-600 outline-none bg-neutral-900/80 border border-white/5 transition-all duration-300 focus:border-indigo-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]" />
+                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
+                    <input required name="name" type="text" placeholder="Your name" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-semibold uppercase tracking-wider text-neutral-400 flex items-center gap-2">
+                  <label className="text-xs font-semibold uppercase tracking-wider text-muted flex items-center gap-2">
                     <Building className="h-3.5 w-3.5" /> Company
                   </label>
                   <div className="relative group">
-                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-500 opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
-                    <input name="company" type="text" placeholder="Optional" className="relative w-full rounded-xl px-5 py-4 text-white placeholder-neutral-600 outline-none bg-neutral-900/80 border border-white/5 transition-all duration-300 focus:border-indigo-500/50 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)]" />
+                    <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent to-accent opacity-0 blur transition duration-300 group-focus-within:opacity-30" />
+                    <input name="company" type="text" placeholder="Optional" className="relative w-full rounded-xl px-5 py-4 text-ink placeholder-muted outline-none bg-canvas border border-line transition-all duration-300 focus:border-line shadow-card" />
                   </div>
                 </div>
               </div>
 
               <div className="pt-4">
                 <label className="flex items-start gap-4 cursor-pointer group">
-                  <div className="relative flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded border border-white/20 bg-neutral-900 transition-colors group-hover:border-indigo-400 group-hover:bg-indigo-500/10">
+                  <div className="relative flex h-5 w-5 mt-0.5 shrink-0 items-center justify-center rounded border border-line bg-canvas transition-colors group-hover:border-line group-hover:bg-tile">
                     <input type="checkbox" name="contact_consent" className="peer absolute h-full w-full opacity-0 cursor-pointer" />
                     <div className="pointer-events-none opacity-0 peer-checked:opacity-100 transition-opacity">
                       <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 4L3.5 6.5L9 1" stroke="#818cf8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M1 4L3.5 6.5L9 1" stroke="var(--primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                   </div>
-                  <span className="text-sm text-neutral-400 leading-relaxed group-hover:text-neutral-300 transition-colors">
+                  <span className="text-sm text-muted leading-relaxed group-hover:text-ink transition-colors">
                     Onnea Labs can contact me to talk through the results and discuss potential solutions.
                   </span>
                 </label>
@@ -171,14 +171,14 @@ export function AIVisibilityReportForm() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-white px-8 py-4 font-bold text-neutral-950 transition-all hover:bg-neutral-200 disabled:opacity-70 mt-6 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]"
+                className="theme-primary group relative flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-accent px-8 py-4 font-bold text-surface transition-all hover:bg-hover disabled:opacity-70 mt-6 shadow-card hover:shadow-card"
               >
                 <span className="relative z-10 tracking-wide">{isSubmitting ? 'Submitting...' : 'Get My AI Visibility Report'}</span>
                 {!isSubmitting && <ArrowRight className="relative z-10 h-5 w-5 transition-transform group-hover:translate-x-1" />}
                 {isSubmitting && <Loader2 className="relative z-10 h-5 w-5 animate-spin" />}
               </button>
               
-              <div className="flex items-center justify-center gap-2 text-xs text-neutral-500 mt-6">
+              <div className="flex items-center justify-center gap-2 text-xs text-muted mt-6">
                 <ShieldCheck className="h-3.5 w-3.5" />
                 <p>We respect your privacy and data security.</p>
               </div>

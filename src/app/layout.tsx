@@ -61,7 +61,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body className={`${inter.variable} antialiased selection:bg-indigo-500/30`}>
+      <body className={`${inter.variable} antialiased selection:bg-tile`}>
       <noscript
           dangerouslySetInnerHTML={{
             __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WWGLGLR4" height="0" width="0" style="display:none;visibility:hidden"></iframe>`,

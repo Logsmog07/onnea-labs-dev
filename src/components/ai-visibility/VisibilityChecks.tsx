@@ -8,39 +8,39 @@ const viewportConfig = { once: true, margin: '-100px' };
 
 const checks = [
   {
-    icon: <Network className="h-7 w-7 text-indigo-400" />,
+    icon: <Network className="h-7 w-7 text-accent" />,
     title: "AI Crawler Access",
     description: "We check if your most important pages are accessible to modern search and AI crawlers, identifying firewall rules or technical restrictions blocking discovery.",
-    glowColor: "rgba(99, 102, 241, 0.15)"
+    glowColor: "transparent"
   },
   {
-    icon: <Search className="h-7 w-7 text-purple-400" />,
+    icon: <Search className="h-7 w-7 text-accent" />,
     title: "Content Structure",
     description: "We review semantic HTML, heading structure, question-led content, topical clarity, and whether important information is structured for machine extraction.",
-    glowColor: "rgba(168, 85, 247, 0.15)"
+    glowColor: "transparent"
   },
   {
-    icon: <Database className="h-7 w-7 text-emerald-400" />,
+    icon: <Database className="h-7 w-7 text-accent" />,
     title: "Structured Data",
     description: "We validate relevant schema.org implementations and machine-readable data across pages to ensure AI models get direct, structured context about your services.",
-    glowColor: "rgba(16, 185, 129, 0.15)"
+    glowColor: "transparent"
   },
   {
-    icon: <ShieldCheck className="h-7 w-7 text-rose-400" />,
+    icon: <ShieldCheck className="h-7 w-7 text-accent" />,
     title: "Freshness & Trust",
     description: "We review fundamental trust signals such as dates, verifiable authorship, explicit business information, and contact details used as credibility markers.",
-    glowColor: "rgba(244, 63, 94, 0.15)"
+    glowColor: "transparent"
   }
 ];
 
 export function VisibilityChecks() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-[#030303]">
+    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-canvas">
       <Container className="relative z-10 mx-auto max-w-7xl">
         <div className="mb-20 text-center flex flex-col items-center">
-          <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-sm">
-            <span className="flex h-2 w-2 rounded-full bg-indigo-500 shadow-[0_0_8px_rgba(99,102,241,0.8)] animate-pulse" />
-            <span className="text-xs font-bold uppercase tracking-[0.2em] text-white/80">
+          <div className="mb-6 inline-flex items-center justify-center gap-3 rounded-full border border-line bg-surface px-4 py-1.5 backdrop-blur-sm">
+            <span className="flex h-2 w-2 rounded-full bg-accent shadow-card animate-pulse" />
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-ink">
               What We Check
             </span>
           </div>
@@ -49,7 +49,7 @@ export function VisibilityChecks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportConfig}
             transition={{ duration: 0.5 }}
-            className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl"
+            className="mb-6 text-4xl font-extrabold tracking-tight text-ink md:text-5xl"
           >
             The Foundational Signals
           </motion.h2>
@@ -58,7 +58,7 @@ export function VisibilityChecks() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportConfig}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mx-auto max-w-2xl text-xl text-neutral-400 font-light"
+            className="mx-auto max-w-2xl text-xl text-muted font-light"
           >
             We dissect the specific technical and structural data points that search engines and AI models use to interpret your business.
           </motion.p>
@@ -72,24 +72,24 @@ export function VisibilityChecks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportConfig}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-[2rem] border border-white/5 bg-neutral-900/40 p-8 md:p-12 transition-all duration-500 hover:border-white/10 hover:bg-neutral-900/60"
+              className="group relative overflow-hidden rounded-[2rem] border border-line bg-surface p-8 md:p-12 transition-all duration-500 hover:border-line hover:bg-surface"
             >
               {/* Dynamic Glow Background */}
               <div 
-                className="absolute -right-20 -top-20 h-64 w-64 rounded-full blur-[80px] transition-all duration-500 group-hover:scale-150"
+                className="absolute -right-20 -top-20 h-64 w-64 rounded-full blur-[80px] transition-all duration-500 group-hover:scale-150 bg-transparent"
                 style={{ backgroundColor: check.glowColor }}
               />
               
               <div className="relative z-10 flex flex-col h-full">
-                <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/5 border border-white/10 shadow-xl backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
+                <div className="mb-8 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-tile border border-line shadow-card backdrop-blur-md transition-transform duration-500 group-hover:-translate-y-2 group-hover:scale-110">
                   {check.icon}
                 </div>
                 
-                <h3 className="mb-4 text-2xl font-bold text-white tracking-wide">
+                <h3 className="mb-4 text-2xl font-bold text-ink tracking-wide">
                   {check.title}
                 </h3>
                 
-                <p className="text-lg leading-relaxed text-neutral-400">
+                <p className="text-lg leading-relaxed text-muted">
                   {check.description}
                 </p>
               </div>

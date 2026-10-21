@@ -15,9 +15,9 @@ export function FeatureList({ data }: { data?: ServiceFeatures }) {
   const rightColumnItems = data.items.slice(midIndex);
 
   return (
-    <SectionContainer className="bg-[#0A0A0A] py-14 md:py-20 relative overflow-hidden">
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[60vw] h-[60vh] bg-indigo-500/5 blur-[70px] rounded-full pointer-events-none" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_10%,transparent_100%)] opacity-30 pointer-events-none" />
+    <SectionContainer className="bg-surface py-14 md:py-20 relative overflow-hidden">
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[60vw] h-[60vh] blur-[70px] rounded-full pointer-events-none bg-transparent" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(81,36,95,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(81,36,95,0.04)_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_10%,transparent_100%)] opacity-30 pointer-events-none" />
 
       <div className="max-w-3xl mx-auto text-center mb-16 lg:mb-20 relative z-10">
         <motion.h2
@@ -25,10 +25,10 @@ export function FeatureList({ data }: { data?: ServiceFeatures }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight leading-[1.1] relative inline-block"
+          className="text-4xl md:text-5xl font-bold text-ink mb-6 tracking-tight leading-[1.1] relative inline-block"
         >
           What You Will Get
-          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-8 h-px bg-indigo-500/50" />
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-8 h-px bg-tile" />
         </motion.h2>
 
         <motion.p
@@ -36,7 +36,7 @@ export function FeatureList({ data }: { data?: ServiceFeatures }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="text-lg text-gray-400 font-light leading-relaxed mt-10 max-w-2xl mx-auto"
+          className="text-lg text-muted font-light leading-relaxed mt-10 max-w-2xl mx-auto"
         >
           Everything your business needs to build a high-performance, scalable digital presence.
         </motion.p>
@@ -54,16 +54,16 @@ export function FeatureList({ data }: { data?: ServiceFeatures }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.5 }}
-                className="group flex items-start gap-5 py-8 border-b border-white/5 last:border-b-0 relative transition-all duration-300 hover:bg-white/[0.02] -mx-4 px-4 rounded-xl"
+                className="group flex items-start gap-5 py-8 border-b border-line last:border-b-0 relative transition-all duration-300 hover:bg-surface -mx-4 px-4 rounded-xl"
               >
-                {isHighlighted && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-12 bg-indigo-500/80 rounded-r-md" />}
+                {isHighlighted && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-12 bg-tile rounded-r-md" />}
 
                 <div className="flex-shrink-0 mt-1">
                   <div className="flex items-center justify-center">
                     {renderLucideIcon(item.icon, {
                       className: cn(
                         'w-5 h-5 stroke-[1.5] transition-all duration-300',
-                        isHighlighted ? 'text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-gray-500 group-hover:text-indigo-400'
+                        isHighlighted ? 'text-accent drop-shadow-[0_0_8px_rgba(231,220,231,0.5)]' : 'text-muted group-hover:text-accent'
                       ),
                     })}
                   </div>
@@ -74,13 +74,13 @@ export function FeatureList({ data }: { data?: ServiceFeatures }) {
                     className={cn(
                       'font-semibold tracking-wide transition-colors duration-300 mb-2',
                       isHighlighted
-                        ? 'text-xl text-white group-hover:text-indigo-100'
-                        : 'text-lg text-gray-200 group-hover:text-white'
+                        ? 'text-xl text-ink group-hover:text-accent'
+                        : 'text-lg text-ink group-hover:text-ink'
                     )}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-gray-400 font-light leading-relaxed text-[15px]">{item.description}</p>
+                  <p className="text-muted font-light leading-relaxed text-[15px]">{item.description}</p>
                 </div>
               </motion.div>
             );
@@ -98,16 +98,16 @@ export function FeatureList({ data }: { data?: ServiceFeatures }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: (leftColumnItems.length + idx) * 0.1, duration: 0.5 }}
-                className="group flex items-start gap-5 py-8 border-b border-white/5 last:border-b-0 relative transition-all duration-300 hover:bg-white/[0.02] -mx-4 px-4 rounded-xl"
+                className="group flex items-start gap-5 py-8 border-b border-line last:border-b-0 relative transition-all duration-300 hover:bg-surface -mx-4 px-4 rounded-xl"
               >
-                {isHighlighted && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-12 bg-indigo-500/80 rounded-r-md" />}
+                {isHighlighted && <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[2px] h-12 bg-tile rounded-r-md" />}
 
                 <div className="flex-shrink-0 mt-1">
                   <div className="flex items-center justify-center">
                     {renderLucideIcon(item.icon, {
                       className: cn(
                         'w-5 h-5 stroke-[1.5] transition-all duration-300',
-                        isHighlighted ? 'text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]' : 'text-gray-500 group-hover:text-indigo-400'
+                        isHighlighted ? 'text-accent drop-shadow-[0_0_8px_rgba(231,220,231,0.5)]' : 'text-muted group-hover:text-accent'
                       ),
                     })}
                   </div>
@@ -118,13 +118,13 @@ export function FeatureList({ data }: { data?: ServiceFeatures }) {
                     className={cn(
                       'font-semibold tracking-wide transition-colors duration-300 mb-2',
                       isHighlighted
-                        ? 'text-xl text-white group-hover:text-indigo-100'
-                        : 'text-lg text-gray-200 group-hover:text-white'
+                        ? 'text-xl text-ink group-hover:text-accent'
+                        : 'text-lg text-ink group-hover:text-ink'
                     )}
                   >
                     {item.title}
                   </h3>
-                  <p className="text-gray-400 font-light leading-relaxed text-[15px]">{item.description}</p>
+                  <p className="text-muted font-light leading-relaxed text-[15px]">{item.description}</p>
                 </div>
               </motion.div>
             );

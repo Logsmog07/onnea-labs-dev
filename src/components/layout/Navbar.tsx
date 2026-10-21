@@ -55,8 +55,8 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-[#030508]/90 py-3 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_8px_32px_rgba(0,0,0,0.2)]'
-          : 'bg-transparent py-4 md:py-5 border-b border-transparent'
+          ? 'bg-canvas py-3 backdrop-blur-xl border-b border-line shadow-card'
+          : 'bg-canvas py-4 md:py-5 border-b border-transparent'
       )}
     >
       <div className="container mx-auto flex items-center justify-between px-5 md:px-10 lg:px-12">
@@ -65,7 +65,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          <Link href="/" className="text-sm font-medium text-gray-400 transition-colors hover:text-white">
+          <Link href="/" className="text-sm font-medium text-ink transition-colors hover:text-accent">
             Home
           </Link>
 
@@ -74,7 +74,7 @@ export function Navbar() {
               href="/services"
               className={cn(
                 'flex items-center gap-1 py-2 text-sm font-medium transition-colors',
-                isServicesRoute ? 'text-white' : 'text-gray-400 hover:text-white'
+                isServicesRoute ? 'text-accent' : 'text-ink hover:text-accent'
               )}
             >
               Services <ChevronDown className="h-3.5 w-3.5" />
@@ -88,9 +88,9 @@ export function Navbar() {
                   transition={{ duration: 0.2 }}
                   className="glass absolute top-full left-1/2 z-50 mt-2 w-72 -translate-x-1/2 overflow-hidden rounded-xl p-1.5"
                 >
-                  <div className="mb-1.5 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-indigo-400">Growth stack</p>
-                    <p className="mt-1.5 text-[13px] leading-relaxed text-gray-400">
+                  <div className="mb-1.5 rounded-lg border border-line bg-tile p-3">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">Growth stack</p>
+                    <p className="mt-1.5 text-[13px] leading-relaxed text-muted">
                       Pick the capability you need and jump straight into the detailed service page.
                     </p>
                   </div>
@@ -100,7 +100,7 @@ export function Navbar() {
                         key={service.path}
                         href={service.path}
                         onClick={closeMenus}
-                        className="rounded-lg px-3 py-2 text-sm text-gray-400 transition-colors hover:bg-white/[0.05] hover:text-white"
+                        className="rounded-lg px-3 py-2 text-sm text-ink transition-colors hover:bg-mauve hover:text-accent"
                       >
                         {service.title}
                       </Link>
@@ -112,7 +112,7 @@ export function Navbar() {
           </div>
 
           {navLinks.slice(2).map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium text-gray-400 transition-colors hover:text-white">
+            <Link key={link.href} href={link.href} className="text-sm font-medium text-ink transition-colors hover:text-accent">
               {link.label}
             </Link>
           ))}
@@ -122,7 +122,7 @@ export function Navbar() {
           <Button size="sm" onClick={() => { closeMenus(); router.push('/ai-visibility-report'); }}>Get AI Visibility Report</Button>
         </div>
 
-        <button className="p-2 text-gray-400 transition-colors hover:text-white md:hidden" onClick={() => setIsMobileMenuOpen((open) => !open)} aria-label="Toggle navigation menu">
+        <button className="p-2 text-ink transition-colors hover:text-accent md:hidden" onClick={() => setIsMobileMenuOpen((open) => !open)} aria-label="Toggle navigation menu">
           {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
@@ -133,19 +133,19 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="glass mt-2 border-t border-white/[0.06] md:hidden"
+            className="glass mt-2 border-t border-line md:hidden"
           >
             <div className="flex flex-col gap-1 p-5 sm:p-6">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} onClick={closeMenus} className="rounded-lg py-3 px-2 text-lg font-medium text-white transition-colors hover:text-indigo-300 active:bg-white/[0.04]">
+                <Link key={link.href} href={link.href} onClick={closeMenus} className="rounded-lg py-3 px-2 text-lg font-medium text-ink transition-colors hover:text-accent active:bg-mauve">
                   {link.label}
                 </Link>
               ))}
-              <div className="flex flex-col gap-3 border-t border-white/[0.06] pt-4">
-                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gray-500">Services</span>
+              <div className="flex flex-col gap-3 border-t border-line pt-4">
+                <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-muted">Services</span>
                 <div className="flex flex-col gap-0.5">
                   {services.map((service) => (
-                    <Link key={service.path} href={service.path} onClick={closeMenus} className="rounded-lg py-2.5 px-2 text-gray-400 transition-colors hover:text-white active:bg-white/[0.04]">
+                    <Link key={service.path} href={service.path} onClick={closeMenus} className="rounded-lg py-2.5 px-2 text-ink transition-colors hover:text-accent active:bg-mauve">
                       {service.title}
                     </Link>
                   ))}

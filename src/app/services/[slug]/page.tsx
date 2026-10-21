@@ -86,7 +86,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   }
 
   return (
-    <main className="min-h-screen bg-[#030508] selection:bg-indigo-500/30 overflow-x-hidden">
+    <main className="min-h-screen bg-canvas selection:bg-tile overflow-x-hidden">
       {/* Structured Data */}
       <script
         type="application/ld+json"

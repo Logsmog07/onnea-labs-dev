@@ -1,24 +1,43 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030508;
-  --foreground: #e8edf5;
-  --foreground-muted: #9ca3af;
-  --primary: #6366f1;
-  --primary-hover: #818cf8;
-  --primary-glow: #8b5cf6;
-  --secondary: #06b6d4;
-  --accent: #a855f7;
-  --card-bg: rgba(255, 255, 255, 0.03);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-hover-border: rgba(99, 102, 241, 0.25);
-  --bg-dark: #030508;
-  --bg-mid: #080c14;
-  --bg-light: #0d1117;
-  --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
-  --gradient-subtle: linear-gradient(180deg, rgba(99, 102, 241, 0.03) 0%, transparent 100%);
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-hover: rgba(255, 255, 255, 0.12);
+  /* Plum identity from Services, with complementary surfaces for refined public pages. */
+  --theme-canvas: #e5ded8;
+  --theme-alternate: #d8cdd5;
+  --theme-surface: #f0eae4;
+  --theme-mauve: #d8cdd5;
+  --theme-tile: #d8cdd5;
+  --theme-text: #29212d;
+  --theme-deep: #35213f;
+  --theme-light-muted: #ded4e1;
+  --theme-footer: #d8d0c9;
+  --theme-muted: #584e5d;
+  --theme-accent: #51245f;
+  --theme-hover: #663675;
+  --theme-border: #c6b7c9;
+  --theme-focus: #754487;
+  --theme-card-shadow: 0 8px 24px rgba(55, 30, 62, 0.06);
+  --theme-button-shadow: 0 4px 12px rgba(55, 30, 62, 0.12);
+  --theme-button-hover-shadow: 0 6px 18px rgba(55, 30, 62, 0.16);
+  --theme-button-active-shadow: 0 2px 8px rgba(55, 30, 62, 0.1);
+  --background: var(--theme-canvas);
+  --foreground: var(--theme-text);
+  --foreground-muted: var(--theme-muted);
+  --primary: var(--theme-accent);
+  --primary-hover: var(--theme-hover);
+  --primary-glow: var(--theme-mauve);
+  --secondary: var(--theme-accent);
+  --accent: var(--theme-accent);
+  --card-bg: var(--theme-surface);
+  --card-border: var(--theme-border);
+  --card-hover-border: var(--theme-focus);
+  --bg-dark: var(--theme-canvas);
+  --bg-mid: var(--theme-alternate);
+  --bg-light: var(--theme-surface);
+  --gradient-primary: linear-gradient(135deg, var(--theme-accent), var(--theme-hover));
+  --gradient-subtle: linear-gradient(180deg, var(--theme-mauve), transparent);
+  --border-subtle: var(--theme-border);
+  --border-hover: var(--theme-focus);
 }
 
 @theme inline {
@@ -30,10 +49,25 @@
   --color-card: var(--card-bg);
   --color-card-border: var(--card-border);
   --font-sans: var(--font-inter);
+  --color-canvas: var(--theme-canvas);
+  --color-alternate: var(--theme-alternate);
+  --color-surface: var(--theme-surface);
+  --color-mauve: var(--theme-mauve);
+  --color-tile: var(--theme-tile);
+  --color-ink: var(--theme-text);
+  --color-muted: var(--theme-muted);
+  --color-accent: var(--theme-accent);
+  --color-hover: var(--theme-hover);
+  --color-line: var(--theme-border);
+  --color-focus: var(--theme-focus);
+  --color-deep: var(--theme-deep);
+  --color-light-muted: var(--theme-light-muted);
+  --color-footer: var(--theme-footer);
+  --shadow-card: var(--theme-card-shadow);
 }
 
 html {
-  color-scheme: dark;
+  color-scheme: light;
   /* scroll-behavior: smooth removed — Lenis handles smooth scrolling via RAF;
      native CSS smooth scroll fights with Lenis and causes double-smoothing jank */
   scroll-behavior: auto;
@@ -52,45 +86,39 @@ body {
 }
 
 @utility glass {
-  background-color: rgba(8, 12, 20, 0.85);
+  background-color: var(--theme-surface);
   backdrop-filter: blur(12px) saturate(150%);
   -webkit-backdrop-filter: blur(12px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 4px 24px rgba(0, 0, 0, 0.2),
-    0 1px 2px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--theme-border);
+  box-shadow: var(--theme-card-shadow);
   /* Removed will-change: backdrop-filter — static elements don't need this hint,
      it forces compositor promotion of large subtrees unnecessarily */
 }
 
 @utility glass-hover {
-  background-color: rgba(12, 16, 28, 0.9);
+  background-color: var(--theme-mauve);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(99, 102, 241, 0.2);
-  box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.25),
-    0 2px 8px rgba(99, 102, 241, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--theme-focus);
+  box-shadow: 0 8px 24px rgba(55, 30, 62, 0.12);
   /* Removed will-change: backdrop-filter, box-shadow — applied on hover via class,
      will-change on a state utility causes premature layer promotion */
 }
 
 @utility form-surface {
-  background-color: rgba(10, 14, 22, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: var(--theme-canvas);
+  border: 1px solid var(--theme-border);
+  box-shadow: inset 0 1px 2px rgba(55, 30, 62, 0.06);
 }
 
 @utility text-glow {
-  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(99, 102, 241, 0.25);
+  text-shadow: 0 0 30px rgba(55, 30, 62, 0.06), 0 0 60px rgba(55, 30, 62, 0.04);
 }
 
 @utility bg-glow {
   box-shadow: 
-    0 0 60px -15px rgba(99, 102, 241, 0.3),
-    0 0 100px -30px rgba(139, 92, 246, 0.2);
+    0 0 60px -15px rgba(55, 30, 62, 0.06),
+    0 0 100px -30px rgba(55, 30, 62, 0.04);
 }
 
 @utility dark-section {
@@ -113,8 +141,8 @@ body {
 }
 
 ::selection {
-  background: rgba(99, 102, 241, 0.35);
-  color: #fff;
+  background: var(--theme-tile);
+  color: var(--foreground);
 }
 
 input,
@@ -125,13 +153,13 @@ button {
 }
 
 select option {
-  background: #0a0f18;
-  color: #e8edf5;
+  background: var(--theme-surface);
+  color: var(--foreground);
 }
 
 /* Smooth focus states */
 *:focus-visible {
-  outline: 2px solid rgba(99, 102, 241, 0.5);
+  outline: 2px solid var(--theme-focus);
   outline-offset: 2px;
 }
 
@@ -146,12 +174,12 @@ select option {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--theme-border);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--theme-muted);
 }
 
 /* Blog prose styles */
@@ -159,7 +187,7 @@ select option {
 .prose-blog h2,
 .prose-blog h3,
 .prose-blog h4 {
-  color: #ffffff;
+  color: var(--foreground);
   font-weight: 700;
   letter-spacing: -0.02em;
   margin-top: 2rem;
@@ -172,14 +200,14 @@ select option {
 
 .prose-blog p {
   margin-bottom: 1.25rem;
-  color: #9ca3af;
+  color: var(--foreground-muted);
 }
 
 .prose-blog ul,
 .prose-blog ol {
   margin-bottom: 1.25rem;
   padding-left: 1.5rem;
-  color: #9ca3af;
+  color: var(--foreground-muted);
 }
 
 .prose-blog ul { list-style-type: disc; }
@@ -190,39 +218,39 @@ select option {
 }
 
 .prose-blog strong {
-  color: #e8edf5;
+  color: var(--foreground);
   font-weight: 600;
 }
 
 .prose-blog a {
-  color: #818cf8;
+  color: var(--primary);
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .prose-blog a:hover {
-  color: #a5b4fc;
+  color: var(--primary-hover);
 }
 
 .prose-blog blockquote {
-  border-left: 3px solid rgba(99, 102, 241, 0.5);
+  border-left: 3px solid var(--primary);
   padding-left: 1rem;
-  color: #6b7280;
+  color: var(--foreground-muted);
   font-style: italic;
   margin: 1.5rem 0;
 }
 
 .prose-blog code {
-  background: rgba(255, 255, 255, 0.06);
+  background: var(--theme-mauve);
   border-radius: 4px;
   padding: 0.15em 0.4em;
   font-size: 0.875em;
-  color: #a5b4fc;
+  color: var(--primary-hover);
 }
 
 .prose-blog pre {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--theme-surface);
+  border: 1px solid var(--theme-border);
   border-radius: 8px;
   padding: 1.25rem;
   overflow-x: auto;
@@ -230,6 +258,122 @@ select option {
 }
 
 .prose-blog hr {
-  border-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--theme-border);
   margin: 2rem 0;
+}
+
+/* Paint-only roles applied to existing sections, without changing geometry. */
+@utility theme-hero {
+  background-color: var(--theme-canvas);
+  background-image: radial-gradient(ellipse at 75% 45%, rgba(216, 205, 213, 0.35), transparent 65%);
+}
+
+@utility theme-cta {
+  background-color: var(--theme-canvas);
+}
+
+/* Explicit shared button variants; caller size, motion and layout stay intact. */
+.onnea-button[data-variant="primary"],
+.theme-primary {
+  background-color: var(--theme-accent);
+  background-image: none;
+  color: var(--theme-surface);
+  --tw-shadow: var(--theme-button-shadow);
+  box-shadow: var(--tw-inset-shadow, 0 0 #0000), var(--tw-inset-ring-shadow, 0 0 #0000),
+    var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+.onnea-button[data-variant="primary"]:hover,
+.theme-primary:hover {
+  background-color: var(--theme-hover);
+  --tw-shadow: var(--theme-button-hover-shadow);
+}
+.onnea-button[data-variant="primary"]:active,
+.theme-primary:active {
+  background-color: var(--theme-accent);
+  --tw-shadow: var(--theme-button-active-shadow);
+}
+.theme-hero .onnea-button[data-variant="primary"] {
+  background-image: var(--gradient-primary);
+  background-size: 100% 100%;
+  background-position: 0 0;
+}
+.onnea-button[data-variant="outline"],
+.onnea-button[data-variant="secondary"] {
+  background-color: var(--theme-surface);
+  color: var(--theme-accent);
+  --tw-shadow: 0 2px 8px rgba(55, 30, 62, 0.04);
+}
+.onnea-button[data-variant="outline"]:hover,
+.onnea-button[data-variant="secondary"]:hover {
+  background-color: var(--theme-mauve);
+  border-color: var(--theme-accent);
+}
+/* The approved emphasis is a solid colour, including existing gradient text. */
+.theme-heading {
+  background-image: none;
+  color: var(--theme-accent);
+}
+
+/* Keep native 404 markup and its own typography while overriding Next's body paint. */
+body:has(.next-error-h1) {
+  background: var(--theme-canvas);
+  color: var(--theme-text);
+}
+body .next-error-h1 {
+  border-color: var(--theme-border);
+}
+
+/* Contained accent panels and existing closing calls to action. Paint only. */
+.theme-accent-panel {
+  background-color: var(--theme-deep);
+  background-image: none;
+  border-color: var(--theme-accent);
+}
+.theme-endpoint {
+  background-color: var(--theme-deep);
+  background-image: linear-gradient(135deg, var(--theme-deep), var(--theme-accent));
+  border-color: var(--theme-accent);
+}
+.theme-accent-panel .onnea-button[data-variant="primary"],
+.theme-endpoint .onnea-button[data-variant="primary"],
+.theme-endpoint .theme-primary {
+  background-color: var(--theme-surface);
+  background-image: none;
+  color: var(--theme-accent);
+}
+.theme-accent-panel .onnea-button[data-variant="primary"]:hover,
+.theme-endpoint .onnea-button[data-variant="primary"]:hover,
+.theme-endpoint .theme-primary:hover {
+  background-color: var(--theme-tile);
+}
+.theme-endpoint .onnea-button[data-variant="outline"] {
+  background-color: transparent;
+  color: var(--theme-surface);
+  border-color: var(--theme-surface);
+  --tw-shadow: 0 0 #0000;
+}
+.theme-endpoint .onnea-button[data-variant="outline"]:hover {
+  background-color: rgba(240, 234, 228, 0.08);
+  border-color: var(--theme-surface);
+}
+.theme-endpoint :focus-visible,
+.theme-accent-panel :focus-visible {
+  outline-color: var(--theme-surface);
+  --tw-ring-color: var(--theme-surface);
+  --tw-ring-offset-color: var(--theme-deep);
+}
+.hero-illustration-main {
+  background-color: var(--theme-deep);
+  background-image: none;
+  border-color: var(--theme-accent);
+}
+.home-faq-item[data-expanded="true"] {
+  background-color: var(--theme-mauve);
+  border-color: var(--theme-focus);
+}
+.home-faq-item[data-expanded="true"] .faq-toggle {
+  background-color: var(--theme-accent);
+}
+.home-faq-item[data-expanded="true"] .faq-chevron {
+  color: var(--theme-surface);
 }

@@ -15,10 +15,10 @@ export function TrustStrip() {
   ];
 
   return (
-    <div className="border-y border-white/5 bg-white/[0.01]">
+    <div className="border-y border-line bg-surface">
       <SectionContainer className="py-12 md:py-16">
         <div className="text-center mb-10">
-          <p className="text-sm font-semibold tracking-widest text-gray-500 uppercase">
+          <p className="text-sm font-semibold tracking-widest text-muted uppercase">
             Built around the capabilities that shape stronger digital performance
           </p>
         </div>
@@ -31,7 +31,7 @@ export function TrustStrip() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.03] px-4 py-3 text-white/90 hover:text-white transition-colors"
+              className="flex items-center gap-3 rounded-full border border-line bg-surface px-4 py-3 text-ink hover:text-ink transition-colors"
             >
               {brand.icon}
               <span className="font-bold text-sm md:text-base tracking-tight">{brand.name}</span>
