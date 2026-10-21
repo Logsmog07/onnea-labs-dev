@@ -28,15 +28,15 @@ const focusAreas = [
 ];
 
 const colorStyles = {
-  indigo: { bg: 'from-indigo-500/15 to-purple-500/10', icon: 'text-indigo-400', border: 'group-hover:border-indigo-500/25' },
-  purple: { bg: 'from-purple-500/15 to-pink-500/10', icon: 'text-purple-400', border: 'group-hover:border-purple-500/25' },
-  cyan: { bg: 'from-cyan-500/15 to-indigo-500/10', icon: 'text-cyan-400', border: 'group-hover:border-cyan-500/25' },
+  indigo: { bg: 'from-mauve to-mauve', icon: 'text-accent', border: 'group-hover:border-line' },
+  purple: { bg: 'from-mauve to-mauve', icon: 'text-accent', border: 'group-hover:border-line' },
+  cyan: { bg: 'from-mauve to-mauve', icon: 'text-accent', border: 'group-hover:border-line' },
 };
 
 export function Testimonials() {
   return (
     <section className="relative overflow-hidden py-14 md:py-20">
-      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-full max-w-4xl bg-gradient-to-br from-purple-500/[0.03] via-indigo-500/[0.02] to-transparent blur-[50px]" style={{ willChange: 'transform' }} />
+      <div className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-full max-w-4xl blur-[50px] bg-transparent" style={{ willChange: 'transform' }} />
 
       <Container className="relative z-10">
         {/* Single animated parent for header — avoids 3 separate IntersectionObserver registrations */}
@@ -47,13 +47,13 @@ export function Testimonials() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
             Focus Areas
           </div>
-          <h2 className="mb-6 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
+          <h2 className="mb-6 text-4xl font-bold tracking-[-0.02em] text-ink md:text-5xl">
             Where we move the needle
           </h2>
-          <p className="mx-auto max-w-2xl text-lg leading-[1.7] text-gray-400">
+          <p className="mx-auto max-w-2xl text-lg leading-[1.7] text-muted">
             Three areas with the highest leverage on digital performance, trust, and conversion — and where most B2B sites still leave value on the table.
           </p>
         </motion.div>
@@ -71,11 +71,11 @@ export function Testimonials() {
             return (
               <motion.div key={idx} variants={fadeUp}>
                 <Card className={`h-full p-7 ${styles.border}`}>
-                  <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${styles.bg} border border-white/[0.06]`}>
+                  <div className={`mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br ${styles.bg} border border-line`}>
                     <Icon className={`h-5 w-5 ${styles.icon}`} />
                   </div>
-                  <h3 className="mb-3 text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="text-[15px] leading-[1.65] text-gray-400">{item.description}</p>
+                  <h3 className="mb-3 text-lg font-semibold text-ink">{item.title}</h3>
+                  <p className="text-[15px] leading-[1.65] text-muted">{item.description}</p>
                 </Card>
               </motion.div>
             );

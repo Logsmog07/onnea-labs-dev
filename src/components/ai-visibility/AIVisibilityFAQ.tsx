@@ -30,7 +30,7 @@ export function AIVisibilityFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-[#030303]">
+    <section className="relative overflow-hidden py-24 md:py-32 dark-section bg-canvas bg-canvas">
       <Container className="relative z-10 mx-auto max-w-4xl">
         <div className="mb-16 text-center">
           <motion.h2 
@@ -38,7 +38,7 @@ export function AIVisibilityFAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportConfig}
             transition={{ duration: 0.5 }}
-            className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-5xl"
+            className="mb-6 text-4xl font-extrabold tracking-tight text-ink md:text-5xl"
           >
             Frequently Asked Questions
           </motion.h2>
@@ -55,16 +55,16 @@ export function AIVisibilityFAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={viewportConfig}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen ? 'border-indigo-500/30 bg-white/[0.04]' : 'border-white/5 bg-white/[0.02] hover:bg-white/[0.04]'}`}
+                className={`overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen ? 'border-line bg-tile' : 'border-line bg-surface hover:bg-tile'}`}
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className="flex w-full items-center justify-between gap-6 px-6 py-6 text-left md:px-8 md:py-8"
                 >
-                  <span className={`text-lg font-bold tracking-wide transition-colors duration-300 ${isOpen ? 'text-white' : 'text-neutral-200'}`}>
+                  <span className={`text-lg font-bold tracking-wide transition-colors duration-300 ${isOpen ? 'text-ink' : 'text-ink'}`}>
                     {faq.question}
                   </span>
-                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen ? 'border-indigo-500/50 bg-indigo-500/10 text-indigo-400 rotate-180' : 'border-white/10 bg-white/5 text-neutral-400'}`}>
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${isOpen ? 'border-line bg-tile text-accent rotate-180' : 'border-line bg-surface text-muted'}`}>
                     {isOpen ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
                   </div>
                 </button>
@@ -77,7 +77,7 @@ export function AIVisibilityFAQ() {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                       <div className="px-6 pb-6 pt-0 md:px-8 md:pb-8">
-                        <p className="text-base leading-relaxed text-neutral-400 md:text-lg">
+                        <p className="text-base leading-relaxed text-muted md:text-lg">
                           {faq.answer}
                         </p>
                       </div>

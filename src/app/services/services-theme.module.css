@@ -1,17 +1,31 @@
-/* The overview's existing main class is the sole theme hook. No global tokens. */
+/* Retain the approved overview paint while sharing its exact tokens site-wide. */
 .theme {
-  --services-canvas: #eae5e0;
-  --services-alternate: #e2dad5;
-  --services-card: #f3eeea;
-  --services-mauve: #e7dce7;
-  --services-tile: #ded0e1;
-  --services-text: #29212d;
-  --services-muted: #605663;
-  --services-accent: #51245f;
-  --services-hover: #663675;
-  --services-border: #d2c5d1;
-  --services-focus: #754487;
-  --services-card-shadow: 0 8px 24px rgba(55, 30, 62, 0.06);
+  /* Freeze the approved overview, including paint used by shared components. */
+  --theme-canvas: #eae5e0;
+  --theme-alternate: #e2dad5;
+  --theme-surface: #f3eeea;
+  --theme-mauve: #e7dce7;
+  --theme-tile: #ded0e1;
+  --theme-text: #29212d;
+  --theme-muted: #605663;
+  --theme-accent: #51245f;
+  --theme-hover: #663675;
+  --theme-border: #d2c5d1;
+  --theme-focus: #754487;
+  --theme-card-shadow: 0 8px 24px rgba(55, 30, 62, 0.06);
+
+  --services-canvas: var(--theme-canvas);
+  --services-alternate: var(--theme-alternate);
+  --services-card: var(--theme-surface);
+  --services-mauve: var(--theme-mauve);
+  --services-tile: var(--theme-tile);
+  --services-text: var(--theme-text);
+  --services-muted: var(--theme-muted);
+  --services-accent: var(--theme-accent);
+  --services-hover: var(--theme-hover);
+  --services-border: var(--theme-border);
+  --services-focus: var(--theme-focus);
+  --services-card-shadow: var(--theme-card-shadow);
   background: var(--services-canvas);
   color: var(--services-text);
 }
@@ -166,24 +180,24 @@
 }
 
 /* Keep the existing Button's size, motion and timings. Gradients stay static. */
-.theme button[class*="from-indigo-500"] {
+.theme button[data-variant="primary"] {
   background-image: none;
   background-color: var(--services-accent);
   color: var(--services-card);
   --tw-shadow: 0 4px 12px rgba(55, 30, 62, 0.12);
 }
 
-.theme button[class*="from-indigo-500"]:hover {
+.theme button[data-variant="primary"]:hover {
   background-color: var(--services-hover);
   --tw-shadow: 0 6px 18px rgba(55, 30, 62, 0.16);
 }
 
-.theme button[class*="from-indigo-500"]:active {
+.theme button[data-variant="primary"]:active {
   background-color: var(--services-accent);
   --tw-shadow: 0 2px 8px rgba(55, 30, 62, 0.1);
 }
 
-.theme > section:first-of-type button[class*="from-indigo-500"] {
+.theme > section:first-of-type button[data-variant="primary"] {
   background-image: linear-gradient(135deg, var(--services-accent), var(--services-hover));
   background-size: 100% 100%;
   background-position: 0 0;
@@ -244,4 +258,17 @@
 /* Preserve the status text and existing green availability dot. */
 .theme > footer [class~="bg-emerald-500/10"] {
   color: var(--services-text);
+}
+
+/* Keep the approved overview's existing scrollbar paint as well as its content. */
+:global(html):has(.theme)::-webkit-scrollbar-track {
+  background: #030508;
+}
+
+:global(html):has(.theme)::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+:global(html):has(.theme)::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
 }

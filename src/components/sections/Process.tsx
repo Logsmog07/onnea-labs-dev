@@ -38,21 +38,21 @@ const ProcessStep = memo(({ step, i }: { step: typeof steps[0]; i: number }) => 
   return (
     <motion.div
       variants={fadeUp}
-      className="group relative flex flex-col rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7 transition-all duration-300 hover:border-indigo-500/25 hover:bg-white/[0.035]"
+      className="group relative flex flex-col rounded-2xl border border-line bg-surface p-7 transition-all duration-300 hover:border-focus hover:bg-surface"
       style={{ willChange: 'transform' }}
     >
       {/* Step number + icon row */}
       <div className="mb-6 flex items-center justify-between">
-        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-indigo-500/20 bg-indigo-500/10 transition-all duration-300 group-hover:bg-indigo-500/15 group-hover:border-indigo-500/35">
-          <Icon className="h-5 w-5 text-indigo-400" />
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-tile transition-all duration-300 group-hover:bg-tile group-hover:border-line">
+          <Icon className="h-5 w-5 text-accent" />
         </div>
-        <span className="font-mono text-3xl font-bold tracking-tight text-white/15 transition-colors duration-300 group-hover:text-indigo-400/40 select-none">
+        <span className="font-mono text-3xl font-bold tracking-tight text-accent transition-colors duration-300 group-hover:text-accent select-none">
           {step.number}
         </span>
       </div>
 
-      <h3 className="mb-2.5 text-lg font-semibold text-white">{step.title}</h3>
-      <p className="text-sm leading-[1.7] text-gray-400">{step.description}</p>
+      <h3 className="mb-2.5 text-lg font-semibold text-ink">{step.title}</h3>
+      <p className="text-sm leading-[1.7] text-muted">{step.description}</p>
     </motion.div>
   );
 });
@@ -61,21 +61,21 @@ ProcessStep.displayName = 'ProcessStep';
 export function Process() {
   return (
     <section id="process" className="relative overflow-hidden py-14 md:py-20">
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#050810] via-[#030508] to-[#050810]" />
+      <div className="pointer-events-none absolute inset-0 bg-alternate" />
       <div
-        className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-500/[0.04] blur-[80px]"
+        className="pointer-events-none absolute top-1/2 left-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px] bg-transparent"
         style={{ willChange: 'transform' }}
       />
 
       <Container className="relative z-10">
         <div className="mb-16 text-center md:mb-20 scroll-mt-20">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
             Process
           </div>
-          <h2 className="mb-6 text-4xl font-bold tracking-[-0.02em] text-white md:text-5xl">
+          <h2 className="mb-6 text-4xl font-bold tracking-[-0.02em] text-ink md:text-5xl">
             From Brief to Results in Four Stages
           </h2>
-          <p className="mx-auto max-w-2xl text-lg leading-[1.7] text-gray-400">
+          <p className="mx-auto max-w-2xl text-lg leading-[1.7] text-muted">
             A clear process designed to reduce wasted effort, build from evidence, and deliver work that improves measurable performance.
           </p>
         </div>

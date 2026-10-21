@@ -13,9 +13,9 @@ export function FAQSection({ data }: { data?: ServiceContent['faq'] }) {
   if (!data || data.items.length === 0) return null;
 
   return (
-    <SectionContainer className="bg-[#0A0A0A] py-14 md:py-20 relative overflow-hidden">
+    <SectionContainer className="bg-canvas py-14 md:py-20 relative overflow-hidden bg-canvas">
       {/* Soft ambient background presence exclusively isolating depth scale */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 blur-[70px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] blur-[70px] rounded-full pointer-events-none bg-transparent" />
 
       <div className="max-w-3xl mx-auto relative z-10 w-full px-4 sm:px-6">
         
@@ -26,15 +26,15 @@ export function FAQSection({ data }: { data?: ServiceContent['faq'] }) {
           viewport={{ once: true }}
           className="text-center mb-12 lg:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight inline-block relative">
+          <h2 className="text-3xl md:text-4xl font-bold text-ink mb-4 tracking-tight inline-block relative">
             Frequently Asked Questions
             {/* Extremely minimal underline stroke avoiding massive UI blobs */}
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-indigo-500/60 to-transparent" />
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-px bg-gradient-to-r from-transparent via-mauve to-transparent" />
           </h2>
         </motion.div>
 
         {/* FAQ Accordion Stack (Raw rows replacing containers) */}
-        <div className="flex flex-col border-t border-white/10">
+        <div className="flex flex-col border-t border-line">
           {data.items.map((item, idx) => {
             const isOpen = openIndex === idx;
 
@@ -46,8 +46,8 @@ export function FAQSection({ data }: { data?: ServiceContent['faq'] }) {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.4 }}
                 className={cn(
-                  "group py-5 border-b border-white/10 transition-colors duration-300",
-                  isOpen ? "bg-white/[0.01]" : "hover:bg-white/[0.02]"
+                  "group py-5 border-b border-line transition-colors duration-300",
+                  isOpen ? "bg-mauve" : "hover:bg-surface"
                 )}
               >
                 {/* Accordion Node Native Interactive Target */}
@@ -57,18 +57,18 @@ export function FAQSection({ data }: { data?: ServiceContent['faq'] }) {
                 >
                   <span className={cn(
                     "font-semibold text-base md:text-lg tracking-wide transition-colors duration-300 pr-8",
-                    isOpen ? "text-indigo-100" : "text-gray-200 group-hover:text-white"
+                    isOpen ? "text-accent" : "text-ink group-hover:text-ink"
                   )}>
                     {item.question}
                   </span>
                   {/* Subtle Interactive Nodes avoiding standard circled template pads */}
                   <div className="flex-shrink-0 relative w-5 h-5 flex items-center justify-center">
                     <Plus className={cn(
-                      "absolute w-4 h-4 transition-all duration-300 text-gray-500 group-hover:text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.2)]",
+                      "absolute w-4 h-4 transition-all duration-300 text-muted group-hover:text-accent drop-shadow-[0_0_8px_rgba(231,220,231,0.2)]",
                       isOpen ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
                     )} />
                     <Minus className={cn(
-                      "absolute w-4 h-4 transition-all duration-300 text-indigo-400 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]",
+                      "absolute w-4 h-4 transition-all duration-300 text-accent drop-shadow-[0_0_8px_rgba(231,220,231,0.5)]",
                       isOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
                     )} />
                   </div>
@@ -84,7 +84,7 @@ export function FAQSection({ data }: { data?: ServiceContent['faq'] }) {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <p className="mt-3 text-sm md:text-base text-gray-400 font-light leading-relaxed pr-10">
+                      <p className="mt-3 text-sm md:text-base text-muted font-light leading-relaxed pr-10">
                         {item.answer}
                       </p>
                     </motion.div>

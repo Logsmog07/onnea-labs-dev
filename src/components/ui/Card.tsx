@@ -20,14 +20,14 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
         className={cn(
           'relative overflow-hidden rounded-2xl border transition-all duration-500',
           glass
-            ? 'glass group hover:border-indigo-500/25 hover:shadow-[0_0_40px_rgba(99,102,241,0.12),0_8px_24px_rgba(0,0,0,0.2)]'
-            : 'border-white/[0.06] bg-white/[0.02]',
+            ? 'glass group hover:border-focus hover:shadow-[0_8px_24px_rgba(55,30,62,0.12)] focus-within:border-focus'
+            : 'border-line bg-surface',
           className
         )}
         {...props}
       >
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-purple-500/0 to-cyan-500/0 opacity-0 transition-opacity duration-500 group-hover:opacity-[0.07]" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white/[0.02] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-[0.07]" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         <div className="relative z-10 h-full">{children}</div>
       </motion.div>
     );

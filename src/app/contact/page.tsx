@@ -31,7 +31,7 @@ export default function ContactPage() {
         }}
       />
       <Navbar />
-      <main className="flex min-h-screen flex-col bg-[#030508] selection:bg-indigo-500/30">
+      <main className="flex min-h-screen flex-col bg-canvas selection:bg-tile">
         <ContactHero />
         <ContactFormSection />
         <ContactCTA />

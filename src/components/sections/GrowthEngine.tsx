@@ -56,15 +56,15 @@ const ProblemCard = memo(({ problem, idx }: { problem: typeof problems[0]; idx: 
   return (
     <motion.div 
       variants={fadeUp}
-      className="group flex items-start gap-4 rounded-xl p-3 transition-all duration-300 hover:bg-white/[0.02]"
+      className="group flex items-start gap-4 rounded-xl p-3 transition-all duration-300 hover:bg-surface"
       style={{ willChange: 'transform' }}
     >
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-gray-500 transition-all duration-300 group-hover:border-indigo-500/30 group-hover:bg-indigo-500/10 group-hover:text-indigo-400">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-line bg-surface text-muted transition-all duration-300 group-hover:border-line group-hover:bg-tile group-hover:text-accent">
         <Icon className="h-5 w-5" />
       </div>
       <div>
-        <h3 className="mb-1 text-[15px] font-semibold text-white">{problem.title}</h3>
-        <p className="text-sm leading-[1.6] text-gray-500">{problem.description}</p>
+        <h3 className="mb-1 text-[15px] font-semibold text-ink">{problem.title}</h3>
+        <p className="text-sm leading-[1.6] text-muted">{problem.description}</p>
       </div>
     </motion.div>
   );
@@ -73,22 +73,22 @@ ProblemCard.displayName = 'ProblemCard';
 
 const SolutionCard = memo(() => (
   <motion.div variants={fadeUp} className="relative" style={{ willChange: 'transform' }}>
-    <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-gradient-to-br from-indigo-500/10 via-purple-500/5 to-cyan-500/5 blur-2xl" />
+    <div className="pointer-events-none absolute -inset-4 rounded-3xl blur-2xl bg-transparent" />
 
-    <div className="relative rounded-2xl border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-white/[0.01] p-8 shadow-[0_24px_48px_rgba(0,0,0,0.2)] backdrop-blur-sm md:p-10">
-      <h3 className="mb-4 text-2xl font-bold tracking-[-0.02em] text-white">One system. Every layer aligned.</h3>
+    <div className="theme-accent-panel relative rounded-2xl border border-line p-8 shadow-card backdrop-blur-sm md:p-10 bg-transparent">
+      <h3 className="mb-4 text-2xl font-bold tracking-[-0.02em] text-surface">One system. Every layer aligned.</h3>
 
-      <p className="mb-8 leading-[1.7] text-gray-400">
+      <p className="mb-8 leading-[1.7] text-light-muted">
         We connect strategy, design, development, SEO, automation, and analytics into a single commercially aligned system. The result: a site that performs harder, decisions that are easier to make, and a growth engine you can actually manage.
       </p>
 
       <ul className="mb-10 space-y-3">
         {solutions.map((solution, idx) => (
           <li key={idx} className="flex items-center gap-3">
-            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-indigo-500/20">
-              <CheckCircle2 className="h-3 w-3 text-indigo-400" />
+            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-tile">
+              <CheckCircle2 className="h-3 w-3 text-accent" />
             </div>
-            <span className="text-[15px] font-medium text-white/90">{solution}</span>
+            <span className="text-[15px] font-medium text-surface">{solution}</span>
           </li>
         ))}
       </ul>
@@ -105,8 +105,8 @@ export function GrowthEngine() {
   return (
     <section className="relative overflow-hidden py-14 md:py-20">
       {/* Background depth */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-indigo-500/[0.015] to-transparent" />
-      <div className="pointer-events-none absolute top-0 left-1/3 h-[400px] w-[400px] rounded-full bg-purple-500/[0.03] blur-[50px]" />
+      <div className="pointer-events-none absolute inset-0 bg-transparent" />
+      <div className="pointer-events-none absolute top-0 left-1/3 h-[400px] w-[400px] rounded-full blur-[50px] bg-transparent" />
       
       <Container>
         <motion.div
@@ -116,12 +116,12 @@ export function GrowthEngine() {
           className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-8"
         >
           <div className="order-1 mt-4 lg:col-span-5 lg:mt-0">
-            <motion.div variants={fadeUp} className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400" style={{ willChange: 'transform' }}>
+            <motion.div variants={fadeUp} className="mb-3 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted" style={{ willChange: 'transform' }}>
               The Challenge
             </motion.div>
-            <motion.h2 variants={fadeUp} className="mb-8 text-3xl font-bold tracking-[-0.02em] text-white md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]" style={{ willChange: 'transform' }}>
+            <motion.h2 variants={fadeUp} className="mb-8 text-3xl font-bold tracking-[-0.02em] text-ink md:text-4xl lg:text-[2.75rem] lg:leading-[1.15]" style={{ willChange: 'transform' }}>
               Why good businesses still{' '}
-              <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">underperform online</span>
+              <span className="bg-gradient-to-r from-accent via-accent to-accent theme-heading bg-clip-text text-accent">underperform online</span>
             </motion.h2>
 
             <div className="space-y-4">
@@ -135,9 +135,9 @@ export function GrowthEngine() {
             <svg className="absolute inset-0 h-full w-full opacity-50" preserveAspectRatio="none" viewBox="0 0 100 400">
               <defs>
                 <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#6366f1" stopOpacity="0.1" />
-                  <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="#6366f1" stopOpacity="0.6" />
+                  <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.45" />
+                  <stop offset="50%" stopColor="var(--primary)" stopOpacity="0.9" />
+                  <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.9" />
                 </linearGradient>
               </defs>
               <path d="M 0,40 C 50,40 50,200 100,200" stroke="url(#lineGradient)" strokeWidth="2" fill="none" />

@@ -19,7 +19,7 @@ export function ToolsTech() {
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportConfig}
-          className="mb-10 text-xs font-semibold tracking-[0.2em] text-gray-500 uppercase"
+          className="mb-10 text-xs font-semibold tracking-[0.2em] text-muted uppercase"
         >
           Tools we work with
         </motion.p>
@@ -36,7 +36,7 @@ export function ToolsTech() {
             <motion.div
               key={idx}
               variants={fadeUp}
-              className="rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-sm font-medium text-gray-500 transition-all duration-300 hover:border-indigo-500/20 hover:text-gray-300 hover:-translate-y-0.5"
+              className="rounded-full border border-line bg-transparent px-4 py-2 text-sm font-medium text-muted transition-all duration-300 hover:border-line hover:text-ink hover:-translate-y-0.5"
             >
               {tool}
             </motion.div>

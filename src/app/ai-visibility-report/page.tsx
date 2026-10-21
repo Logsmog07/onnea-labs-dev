@@ -33,7 +33,7 @@ export default function AIVisibilityReportPage() {
   return (
     <>
       <Navbar />
-      <main id="top" className="flex min-h-screen flex-col bg-[#050505]">
+      <main id="top" className="flex min-h-screen flex-col bg-canvas">
         <AIVisibilityHero />
         <ReportDeliverables />
         <VisibilityChecks />

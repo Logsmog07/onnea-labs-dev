@@ -16,7 +16,7 @@ export function SocialProof() {
   return (
     <section className="relative z-20 pt-4 pb-12 md:pt-8 md:pb-16 -mt-8 md:-mt-12">
       <Container className="text-center">
-        <p className="mb-4 text-sm font-medium tracking-wide text-gray-500">
+        <p className="mb-4 text-sm font-medium tracking-wide text-muted">
           One connected system across
         </p>
 
@@ -32,7 +32,7 @@ export function SocialProof() {
             <motion.div
               key={idx}
               variants={fadeUp}
-              className="rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-2 text-sm font-medium text-gray-400 transition-all duration-300 hover:border-indigo-500/20 hover:text-gray-300"
+              className="rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-muted transition-all duration-300 hover:border-line hover:text-ink"
             >
               {pillar}
             </motion.div>

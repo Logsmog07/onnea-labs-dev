@@ -40,7 +40,7 @@ export default async function BlogPostPage({ params }: Props) {
     .slice(0, 4);
 
   return (
-    <main className="min-h-screen bg-[#030508] text-white selection:bg-indigo-500/30">
+    <main className="min-h-screen bg-canvas text-ink selection:bg-tile">
       <Navbar />
 
       <PageTransitionWrapper>
@@ -60,13 +60,13 @@ export default async function BlogPostPage({ params }: Props) {
                   {post.tags?.map((tag) => (
                     <span 
                       key={tag} 
-                      className="rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-indigo-300"
+                      className="rounded-full border border-line bg-tile px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-accent"
                     >
                       {tag}
                     </span>
                   ))}
                   {post.date && (
-                    <span className="text-[13px] font-medium uppercase tracking-wider text-gray-500">
+                    <span className="text-[13px] font-medium uppercase tracking-wider text-muted">
                       {new Date(post.date).toLocaleDateString('en-GB', {
                         day: 'numeric',
                         month: 'long',
@@ -76,17 +76,17 @@ export default async function BlogPostPage({ params }: Props) {
                   )}
                 </div>
 
-                <h1 className="mb-6 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+                <h1 className="mb-6 text-4xl font-bold tracking-tight text-ink md:text-5xl lg:text-6xl">
                   {post.title}
                 </h1>
                 
-                <p className="text-lg leading-relaxed text-gray-400 md:text-xl">
+                <p className="text-lg leading-relaxed text-muted md:text-xl">
                   {post.excerpt}
                 </p>
               </header>
 
               {post.thumbnail && (
-                <div className="relative mb-12 aspect-video w-full overflow-hidden rounded-2xl border border-white/[0.06] bg-[#080c14]">
+                <div className="relative mb-12 aspect-video w-full overflow-hidden rounded-2xl border border-line bg-alternate">
                   <Image
                     src={assetPath(post.thumbnail)}
                     alt={post.title}
@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: Props) {
                 className="prose-blog max-w-none"
                 dangerouslySetInnerHTML={{ __html: post.content }}
                 style={{
-                  color: '#9ca3af', // gray-400
+                  color: 'var(--foreground-muted)',
                   lineHeight: '1.75',
                   fontSize: '1rem',
                 }}
@@ -118,18 +118,18 @@ export default async function BlogPostPage({ params }: Props) {
               {/* Related Articles */}
               {relatedPosts.length > 0 && (
                 <div>
-                  <h3 className="mb-6 border-b border-white/[0.06] pb-4 text-lg font-bold text-white">
+                  <h3 className="mb-6 border-b border-line pb-4 text-lg font-bold text-ink">
                     Related Articles
                   </h3>
                   <div className="flex flex-col gap-6">
                     {relatedPosts.map((relatedPost) => (
                       <Link href={`/blog/${relatedPost.slug}`} key={relatedPost.slug} className="group flex flex-col gap-3 outline-none">
                         <div>
-                          <h4 className="mb-1.5 line-clamp-2 text-[15px] font-semibold leading-snug text-white transition-colors group-hover:text-indigo-400">
+                          <h4 className="mb-1.5 line-clamp-2 text-[15px] font-semibold leading-snug text-ink transition-colors group-hover:text-accent">
                             {relatedPost.title}
                           </h4>
                           {relatedPost.date && (
-                            <p className="mb-2 text-[12px] font-medium uppercase tracking-wider text-gray-500">
+                            <p className="mb-2 text-[12px] font-medium uppercase tracking-wider text-muted">
                               {new Date(relatedPost.date).toLocaleDateString('en-GB', {
                                 day: 'numeric',
                                 month: 'long',
@@ -138,7 +138,7 @@ export default async function BlogPostPage({ params }: Props) {
                             </p>
                           )}
                           {relatedPost.excerpt && (
-                            <p className="line-clamp-2 text-[13px] leading-relaxed text-gray-400">
+                            <p className="line-clamp-2 text-[13px] leading-relaxed text-muted">
                               {relatedPost.excerpt}
                             </p>
                           )}
@@ -150,18 +150,18 @@ export default async function BlogPostPage({ params }: Props) {
               )}
 
               {/* Free AEO Audit CTA Card */}
-              <div className="group relative overflow-hidden rounded-2xl border border-purple-500/30 bg-[#080c14] p-8 shadow-[0_0_30px_rgba(168,85,247,0.1)]">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-50" />
+              <div className="group relative overflow-hidden rounded-2xl border border-line bg-alternate p-8 shadow-card">
+                <div className="absolute inset-0 bg-gradient-to-br from-mauve to-transparent opacity-50" />
                 <div className="relative z-10">
-                  <h3 className="mb-4 text-xl font-bold text-white">
+                  <h3 className="mb-4 text-xl font-bold text-ink">
                     Get a Free AEO Audit
                   </h3>
-                  <p className="mb-8 text-[15px] leading-relaxed text-gray-400">
+                  <p className="mb-8 text-[15px] leading-relaxed text-muted">
                     Find out whether your business appears in AI-powered search results like ChatGPT, Perplexity, and Google AI Overviews.
                   </p>
                   <Link 
                     href="/contact?service=aeo-audit"
-                    className="inline-flex w-full items-center justify-center rounded-full bg-white px-6 py-3.5 text-[14px] font-semibold text-black transition-all hover:bg-gray-100 active:scale-[0.98]"
+                    className="theme-primary inline-flex w-full items-center justify-center rounded-full bg-accent px-6 py-3.5 text-[14px] font-semibold text-surface transition-all hover:bg-hover active:scale-[0.98]"
                   >
                     Book Free Audit
                   </Link>

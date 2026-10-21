@@ -11,8 +11,8 @@ export default function CookieBanner() {
         if (typeof window !== "undefined" && (window as any).cookieconsent) {
           (window as any).cookieconsent.initialise({
             "palette": {
-              "popup": { "background": "#000" },
-              "button": { "background": "#6366f1" } 
+              "popup": { "background": "var(--theme-surface)", "text": "var(--theme-text)" },
+              "button": { "background": "var(--theme-accent)", "text": "var(--theme-surface)" }
             },
             "position": "bottom-left",
             "content": {

@@ -37,16 +37,16 @@ export function StickyCTA({ title = 'Ready to start your project?', buttonText =
           transition={{ type: 'spring', stiffness: 300, damping: 25 }}
           className="fixed bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 z-50 w-[90%] sm:w-auto"
         >
-          <div className="bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 p-2 pr-2 md:pr-4 rounded-full shadow-[0_0_40px_rgba(99,102,241,0.15)] flex items-center justify-between gap-4">
-            <span className="text-gray-200 font-medium pl-4 hidden sm:block text-sm whitespace-nowrap">{title}</span>
+          <div className="bg-surface backdrop-blur-xl border border-line p-2 pr-2 md:pr-4 rounded-full shadow-card flex items-center justify-between gap-4">
+            <span className="text-ink font-medium pl-4 hidden sm:block text-sm whitespace-nowrap">{title}</span>
             {onClick ? (
-              <Button size="sm" className="w-full sm:w-auto rounded-full bg-white text-black hover:bg-gray-200 border-none group" onClick={onClick}>
+              <Button size="sm" className="w-full sm:w-auto rounded-full bg-accent text-surface hover:bg-hover border-none group" onClick={onClick}>
                 {buttonText}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             ) : (
               <Link href="/contact#contact-form">
-                <Button size="sm" className="w-full sm:w-auto rounded-full bg-white text-black hover:bg-gray-200 border-none group">
+                <Button size="sm" className="w-full sm:w-auto rounded-full bg-accent text-surface hover:bg-hover border-none group">
                   {buttonText}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>

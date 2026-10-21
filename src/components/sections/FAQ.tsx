@@ -33,9 +33,9 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-14 md:py-20">
+    <section className="relative py-14 md:py-20 bg-canvas">
       {/* Background */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#030508] via-[#080c14] to-[#030508]" />
+      <div className="pointer-events-none absolute inset-0 bg-canvas" />
 
       <Container className="relative z-10 max-w-3xl">
         {/* Single animated parent for header — avoids 3 separate IntersectionObserver registrations */}
@@ -46,13 +46,13 @@ export function FAQ() {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.02] px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-muted">
             FAQ
           </div>
-          <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-white md:text-4xl">
+          <h2 className="mb-4 text-3xl font-bold tracking-[-0.02em] text-ink md:text-4xl">
             Frequently Asked Questions
           </h2>
-          <p className="text-gray-400">
+          <p className="text-muted">
             Common questions about how we work, what to expect, and whether we might be a good fit.
           </p>
         </motion.div>
@@ -67,20 +67,21 @@ export function FAQ() {
           {faqs.map((faq, idx) => (
             <motion.div
               key={idx}
+              data-expanded={openIndex === idx}
               variants={fadeUp}
-              className="overflow-hidden rounded-xl border border-white/[0.06] bg-white/[0.02]"
+              className="home-faq-item overflow-hidden rounded-xl border border-line bg-surface"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="flex w-full items-center justify-between p-5 text-left transition-colors hover:bg-white/[0.02] focus:outline-none"
+                className="flex w-full items-center justify-between p-5 text-left transition-colors hover:bg-surface focus:outline-none"
               >
-                <span className="text-[15px] font-medium text-white">{faq.question}</span>
+                <span className="text-[15px] font-medium text-ink">{faq.question}</span>
                 <motion.div
                   animate={{ rotate: openIndex === idx ? 180 : 0 }}
                   transition={{ duration: 0.2 }}
-                  className="flex h-6 w-6 items-center justify-center rounded-full bg-white/[0.03]"
+                  className="faq-toggle flex h-6 w-6 items-center justify-center rounded-full bg-surface"
                 >
-                  <ChevronDown className="h-4 w-4 text-indigo-400" />
+                  <ChevronDown className="faq-chevron h-4 w-4 text-accent" />
                 </motion.div>
               </button>
 
@@ -92,7 +93,7 @@ export function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="px-5 pb-5 text-[15px] leading-[1.65] text-gray-400">
+                    <div className="px-5 pb-5 text-[15px] leading-[1.65] text-muted">
                       {faq.answer}
                     </div>
                   </motion.div>
